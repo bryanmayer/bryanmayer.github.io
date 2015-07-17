@@ -1,5 +1,5 @@
 # General
-name: Minimal-Block
+name: Bryan Mayer
 description: "Minimalistic, friendly, responsive."
 url: http://bryanmayer.github.io
 
@@ -10,8 +10,8 @@ paginate: 5
 permalink: /:title
 
 # Social share and comments.
-twitter: www.twitter.com/mayertbryan
-github: www.github.com/bryanmayer
+twitter: mayertbryan
+github: bryanmayer
 
 # RSS feed
 rss-feed-limit: 10
