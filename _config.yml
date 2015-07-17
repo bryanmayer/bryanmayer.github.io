@@ -1,7 +1,7 @@
 # General
 name: Minimal-Block
 description: "Minimalistic, friendly, responsive."
-url: http://http://bryanmayer.github.io/
+url: http://http://bryanmayer.github.io
 
 markdown: redcarpet
 highlighter: pygments
