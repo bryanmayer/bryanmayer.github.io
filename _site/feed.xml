@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
-        <title>Bryan Mayer</title>
+        <title>Bryan T. Mayer</title>
         <description>Minimalistic, friendly, responsive.</description>
         <link>http://bryanmayer.github.io</link>
         <atom:link href="http://bryanmayer.github.io/feed.xml" rel="self" type="application/rss+xml" />
