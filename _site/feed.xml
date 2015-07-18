@@ -58,10 +58,11 @@
                 <title>package masking in R</title>
                 <dc:creator></dc:creator>
                 
-                    <description>&lt;p&gt;sometimes dplyr and plyr mask eachother&amp;#39;s functions. Easy solution is to utilize the &amp;quot;::&amp;quot; operator.&lt;br&gt;
-    summaryData = myData %&amp;gt;% group&lt;em&gt;by(some&lt;/em&gt;category) %&amp;gt;% 
-    dplyr::summarise(new&lt;em&gt;mean = mean(some&lt;/em&gt;variable)) &lt;/p&gt;
-</description>
+                    <description>&lt;p&gt;Sometimes dplyr and plyr mask eachother&amp;#39;s functions. Easy solution is to utilize the &amp;quot;::&amp;quot; operator.  (The best solution is to
+only load dplyr and call all plyr functions using plyr::.)  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;summaryData = myData %&amp;gt;% group_by(some_category) %&amp;gt;% 
+dplyr::summarise(new_mean = mean(some_variable)) 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
                 
                             <pubDate>Wed, 09 Jul 2014 21:22:00 -0700</pubDate>
                 <link>http://bryanmayer.github.io/package-masking-in-r</link>

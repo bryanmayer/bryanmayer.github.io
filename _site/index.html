@@ -77,9 +77,8 @@
         <article class="module color-3">
                 <h2><a href="http://bryanmayer.github.io/package-masking-in-r" title="package masking in R">package masking in R</a></h2>
                 <span class="category"></span>
-                <p>sometimes dplyr and plyr mask eachother&#39;s functions. Easy solution is to utilize the &quot;::&quot; operator.
-    summaryData = myData %&gt;% groupby(somecategory) %&gt;% 
-    dplyr::summarise(newmean = mean(somevariable)) 
+                <p>Sometimes dplyr and plyr mask eachother&#39;s functions. Easy solution is to utilize the &quot;::&quot; operator.  (The best solution is to
+only load dplyr and call all plyr functions using plyr::.)  
 </p>
         </article>
     

@@ -55,10 +55,11 @@
     <article class="module color-3">
         <h1>package masking in R</h1>
         <hr>
-        <p>sometimes dplyr and plyr mask eachother&#39;s functions. Easy solution is to utilize the &quot;::&quot; operator.<br>
-    summaryData = myData %&gt;% group<em>by(some</em>category) %&gt;% 
-    dplyr::summarise(new<em>mean = mean(some</em>variable)) </p>
-
+        <p>Sometimes dplyr and plyr mask eachother&#39;s functions. Easy solution is to utilize the &quot;::&quot; operator.  (The best solution is to
+only load dplyr and call all plyr functions using plyr::.)  </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">summaryData = myData %&gt;% group_by(some_category) %&gt;% 
+dplyr::summarise(new_mean = mean(some_variable)) 
+</code></pre></div>
         <p class="top"><small><a href="#top">[top]</a></small></p>
     </article>
 
