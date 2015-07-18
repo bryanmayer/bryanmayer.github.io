@@ -7,6 +7,23 @@
         <atom:link href="http://bryanmayer.github.io/feed.xml" rel="self" type="application/rss+xml" />
         
             <item>
+                <title>R shiny app of my BV data</title>
+                <dc:creator></dc:creator>
+                
+                    <description>&lt;p&gt;Last week, I took a workshop with the one and only Hadley Wickham learning about data visualization!
+As part of the course we learned about shiny and so I turned one of the figures from my &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/25676470&quot;&gt;recent publication on 
+bacterial vaginosis&lt;/a&gt; into a 
+&lt;a href=&quot;https://bryanmayer.shinyapps.io/BV-time-series&quot;&gt;shiny app hosted on shinyapps.io&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My code is up on github: &lt;a href=&quot;https://github.com/bryanmayer/BV_data_figure&quot;&gt;https://github.com/bryanmayer/BV_data_figure&lt;/a&gt;:&lt;/p&gt;
+</description>
+                
+                            <pubDate>Wed, 15 Jul 2015 14:10:48 -0700</pubDate>
+                <link>http://bryanmayer.github.io/R-shiny-app-of-my-BV-data</link>
+                <guid isPermaLink="true">http://bryanmayer.github.io/R-shiny-app-of-my-BV-data</guid>
+            </item>
+        
+            <item>
                 <title>This is way more elegant than I could ever put it</title>
                 <dc:creator></dc:creator>
                 
