@@ -12,7 +12,6 @@ As a general rule, most bacterial groups and species should be italicized. Howev
 
 {% gist 8189651 %}
 
-
 ![image](https://31.media.tumblr.com/7e5f4533e05ddef0ea51dd0adc5e92bf/tumblr_inline_myn6yyDnUM1qec066.png)
 
 
