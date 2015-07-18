@@ -58,7 +58,7 @@
                 <title>package masking in R</title>
                 <dc:creator></dc:creator>
                 
-                    <description>&lt;p&gt;sometimes dplyr and plyr mask eachother&amp;#39;s functions. Easy solution is to utilize the &amp;quot;::&amp;quot; operator.
+                    <description>&lt;p&gt;sometimes dplyr and plyr mask eachother&amp;#39;s functions. Easy solution is to utilize the &amp;quot;::&amp;quot; operator.&lt;br&gt;
     summaryData = myData %&amp;gt;% group&lt;em&gt;by(some&lt;/em&gt;category) %&amp;gt;% 
     dplyr::summarise(new&lt;em&gt;mean = mean(some&lt;/em&gt;variable)) &lt;/p&gt;
 </description>
