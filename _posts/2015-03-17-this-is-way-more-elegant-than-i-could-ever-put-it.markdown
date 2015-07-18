@@ -8,6 +8,6 @@ title: This is way more elegant than I could ever put it
 wordpress_id: 4
 ---
 
-[The data may not contain the answer. The combination of some data and an aching desire for an answer does not ensure that a reasonable answer can be extracted from a given body of data.]
+The data may not contain the answer. The combination of some data and an aching desire for an answer does not ensure that a reasonable answer can be extracted from a given body of data.
 
--John Tukey [from my favorite stats blog]((http://www.johndcook.com/blog/2009/02/18/the-data-may-not-contain-the-answer/)
+-John Tukey [from my favorite stats blog](http://www.johndcook.com/blog/2009/02/18/the-data-may-not-contain-the-answer/)

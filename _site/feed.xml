@@ -1,45 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
-        <title>Minimal-Block</title>
+        <title>Bryan Mayer</title>
         <description>Minimalistic, friendly, responsive.</description>
-        <link>http://localhost:4000</link>
-        <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+        <link>http://bryanmayer.github.io</link>
+        <atom:link href="http://bryanmayer.github.io/feed.xml" rel="self" type="application/rss+xml" />
         
             <item>
                 <title>This is way more elegant than I could ever put it</title>
                 <dc:creator></dc:creator>
                 
-                    <description>The data may not contain the answer. The combination of some data and an aching desire for an answer does not ensure that a reasonable answer can be extracted from a given body of data.  
+                    <description>[The data may not contain the answer. The combination of some data and an aching desire for an answer does not ensure that a reasonable answer can be extracted from a given body of data.]
 </description>
                 
                             <pubDate>Tue, 17 Mar 2015 14:10:48 -0700</pubDate>
-                <link>http://localhost:4000/this-is-way-more-elegant-than-i-could-ever-put-it</link>
-                <guid isPermaLink="true">http://localhost:4000/this-is-way-more-elegant-than-i-could-ever-put-it</guid>
-            </item>
-        
-            <item>
-                <title>minimal-block - A minimalistic responsive Jekyll theme</title>
-                <dc:creator></dc:creator>
-                
-                    <description>This theme stared out being a fork from the Block-log. It still keeps many similarities. Minimal-block is a minimalistic, responsive and friendly Jekyllrb theme. It has almost no javascript (except for disquss), static social share buttons, rss, p...</description>
-                
-                            <pubDate>Fri, 02 Jan 2015 16:00:00 -0800</pubDate>
-                <link>http://localhost:4000/minimal-block-jekyll</link>
-                <guid isPermaLink="true">http://localhost:4000/minimal-block-jekyll</guid>
-            </item>
-        
-            <item>
-                <title>Welcome to Jekyll!</title>
-                <dc:creator></dc:creator>
-                
-                    <description>You&#39;ll find this post in your _posts directory - edit this post and re-build (or run with the -w switch) to see your changes!
-To add new posts, simply add a file in the _posts directory that follows the convention: YYYY-MM-DD-name-of-post.ext.
-</description>
-                
-                            <pubDate>Fri, 02 Jan 2015 05:37:00 -0800</pubDate>
-                <link>http://localhost:4000/welcome-to-jekyll</link>
-                <guid isPermaLink="true">http://localhost:4000/welcome-to-jekyll</guid>
+                <link>http://bryanmayer.github.io/this-is-way-more-elegant-than-i-could-ever-put-it</link>
+                <guid isPermaLink="true">http://bryanmayer.github.io/this-is-way-more-elegant-than-i-could-ever-put-it</guid>
             </item>
         
             <item>
@@ -54,8 +30,8 @@ Heading 1
 Heading...</description>
                 
                             <pubDate>Thu, 01 Jan 2015 05:37:00 -0800</pubDate>
-                <link>http://localhost:4000/elements</link>
-                <guid isPermaLink="true">http://localhost:4000/elements</guid>
+                <link>http://bryanmayer.github.io/elements</link>
+                <guid isPermaLink="true">http://bryanmayer.github.io/elements</guid>
             </item>
         
             <item>
@@ -66,8 +42,8 @@ Heading...</description>
 </description>
                 
                             <pubDate>Tue, 16 Sep 2014 16:27:00 -0700</pubDate>
-                <link>http://localhost:4000/how-to-write-in-science</link>
-                <guid isPermaLink="true">http://localhost:4000/how-to-write-in-science</guid>
+                <link>http://bryanmayer.github.io/how-to-write-in-science</link>
+                <guid isPermaLink="true">http://bryanmayer.github.io/how-to-write-in-science</guid>
             </item>
         
             <item>
@@ -78,8 +54,8 @@ Heading...</description>
 </description>
                 
                             <pubDate>Fri, 12 Sep 2014 11:16:33 -0700</pubDate>
-                <link>http://localhost:4000/random-promotions</link>
-                <guid isPermaLink="true">http://localhost:4000/random-promotions</guid>
+                <link>http://bryanmayer.github.io/random-promotions</link>
+                <guid isPermaLink="true">http://bryanmayer.github.io/random-promotions</guid>
             </item>
         
             <item>
@@ -87,11 +63,13 @@ Heading...</description>
                 <dc:creator></dc:creator>
                 
                     <description>sometimes dplyr and plyr mask eachother&#39;s functions. Easy solution is to utilize the &quot;::&quot; operator.
+    summaryData = myData %&gt;% groupby(somecategory) %&gt;% 
+    dplyr::summarise(newmean = mean(somevariable)) 
 </description>
                 
                             <pubDate>Wed, 09 Jul 2014 21:22:00 -0700</pubDate>
-                <link>http://localhost:4000/package-masking-in-r</link>
-                <guid isPermaLink="true">http://localhost:4000/package-masking-in-r</guid>
+                <link>http://bryanmayer.github.io/package-masking-in-r</link>
+                <guid isPermaLink="true">http://bryanmayer.github.io/package-masking-in-r</guid>
             </item>
         
             <item>
@@ -102,20 +80,27 @@ Heading...</description>
 </description>
                 
                             <pubDate>Wed, 26 Mar 2014 16:15:39 -0700</pubDate>
-                <link>http://localhost:4000/put-that-coffee-down</link>
-                <guid isPermaLink="true">http://localhost:4000/put-that-coffee-down</guid>
+                <link>http://bryanmayer.github.io/put-that-coffee-down</link>
+                <guid isPermaLink="true">http://bryanmayer.github.io/put-that-coffee-down</guid>
             </item>
         
             <item>
-                <title>This is normal enough right?</title>
+                <title>This Is Normal Enough Right</title>
                 <dc:creator></dc:creator>
                 
                     <description>
+
+author: mayertbryan
+comments: true
+date: 2014-03-05 22:07:04+00:00
+layout: post
+slug: this-is-normal-enough-right
+title: This is normal enough right?
 </description>
                 
-                            <pubDate>Wed, 05 Mar 2014 14:07:04 -0800</pubDate>
-                <link>http://localhost:4000/this-is-normal-enough-right</link>
-                <guid isPermaLink="true">http://localhost:4000/this-is-normal-enough-right</guid>
+                            <pubDate>Wed, 05 Mar 2014 00:00:00 -0800</pubDate>
+                <link>http://bryanmayer.github.io/this-is-normal-enough-right</link>
+                <guid isPermaLink="true">http://bryanmayer.github.io/this-is-normal-enough-right</guid>
             </item>
         
             <item>
@@ -126,8 +111,30 @@ Heading...</description>
 </description>
                 
                             <pubDate>Tue, 31 Dec 2013 12:47:00 -0800</pubDate>
-                <link>http://localhost:4000/getting-latex-commands-into-xtable-without-the</link>
-                <guid isPermaLink="true">http://localhost:4000/getting-latex-commands-into-xtable-without-the</guid>
+                <link>http://bryanmayer.github.io/getting-latex-commands-into-xtable-without-the</link>
+                <guid isPermaLink="true">http://bryanmayer.github.io/getting-latex-commands-into-xtable-without-the</guid>
+            </item>
+        
+            <item>
+                <title>Customizing ggplot axes</title>
+                <dc:creator></dc:creator>
+                
+                    <description>As a general rule, most bacterial groups and species should be italicized. However, I&#39;m working with a few oddities that are not italicized. This led to some issues with axis labelings.  Through some troubleshooting I found a pretty workable s...</description>
+                
+                            <pubDate>Mon, 30 Dec 2013 15:09:00 -0800</pubDate>
+                <link>http://bryanmayer.github.io/customizing-ggplot-axes</link>
+                <guid isPermaLink="true">http://bryanmayer.github.io/customizing-ggplot-axes</guid>
+            </item>
+        
+            <item>
+                <title>nesting rbind/merge/ddply</title>
+                <dc:creator></dc:creator>
+                
+                    <description>In this I need to extract baseline and final values from a time series for one set of bacteria based on the analysis of another set. The final time varies by person and is derived in the separate analysis so that must be extracted individually the...</description>
+                
+                            <pubDate>Wed, 18 Dec 2013 14:17:00 -0800</pubDate>
+                <link>http://bryanmayer.github.io/nesting-rbind-merge-ddply</link>
+                <guid isPermaLink="true">http://bryanmayer.github.io/nesting-rbind-merge-ddply</guid>
             </item>
         
     </channel>
