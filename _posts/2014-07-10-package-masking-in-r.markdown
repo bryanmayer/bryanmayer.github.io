@@ -8,6 +8,6 @@ title: package masking in R
 wordpress_id: 7
 ---
 
-sometimes dplyr and plyr mask eachother's functions. Easy solution is to utilize the "::" operator.
+sometimes dplyr and plyr mask eachother's functions. Easy solution is to utilize the "::" operator.  
     summaryData = myData %>% group_by(some_category) %>% 
     dplyr::summarise(new_mean = mean(some_variable)) 
