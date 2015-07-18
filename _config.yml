@@ -15,4 +15,4 @@ github: bryanmayer
 
 # RSS feed
 rss-feed-limit: 10
-rss-show-full: "no"
+rss-show-full: "yes"

@@ -10,7 +10,9 @@
                 <title>This is way more elegant than I could ever put it</title>
                 <dc:creator></dc:creator>
                 
-                    <description>The data may not contain the answer. The combination of some data and an aching desire for an answer does not ensure that a reasonable answer can be extracted from a given body of data.
+                    <description>&lt;p&gt;The data may not contain the answer. The combination of some data and an aching desire for an answer does not ensure that a reasonable answer can be extracted from a given body of data.&lt;/p&gt;
+
+&lt;p&gt;-John Tukey &lt;a href=&quot;http://www.johndcook.com/blog/2009/02/18/the-data-may-not-contain-the-answer/&quot;&gt;from my favorite stats blog&lt;/a&gt;&lt;/p&gt;
 </description>
                 
                             <pubDate>Tue, 17 Mar 2015 14:10:48 -0700</pubDate>
@@ -22,7 +24,11 @@
                 <title>How to write in science</title>
                 <dc:creator></dc:creator>
                 
-                    <description>passive voice, gerund form, jargon.
+                    <description>&lt;p&gt;passive voice, gerund form, jargon.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;A more comprehensive understanding of this impact is crucial to future dynamic characterization.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 </description>
                 
                             <pubDate>Tue, 16 Sep 2014 16:27:00 -0700</pubDate>
@@ -34,7 +40,13 @@
                 <title>Random promotions</title>
                 <dc:creator></dc:creator>
                 
-                    <description>Spent a little time learning about the Peter Principle today and found an agent-based model of company promotion strategies.  
+                    <description>&lt;p&gt;Spent a little time learning about the &lt;a href=&quot;http://en.wikipedia.org/wiki/Peter_Principle&quot;&gt;Peter Principle&lt;/a&gt; today and found an agent-based model of company promotion strategies.  &lt;/p&gt;
+
+&lt;p&gt;The optimal strategy? Promoting by random.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://arxiv.org/pdf/0907.0455v3.pdf&quot;&gt;http://arxiv.org/pdf/0907.0455v3.pdf&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;(Side note: I have reservations about agent-based models because, without proper constraints and training, they can be parameterized to basically find any result.  Having said that, I did not scrutinize the methods of this paper.)&lt;/p&gt;
 </description>
                 
                             <pubDate>Fri, 12 Sep 2014 11:16:33 -0700</pubDate>
@@ -46,9 +58,9 @@
                 <title>package masking in R</title>
                 <dc:creator></dc:creator>
                 
-                    <description>sometimes dplyr and plyr mask eachother&#39;s functions. Easy solution is to utilize the &quot;::&quot; operator.
-    summaryData = myData %&gt;% groupby(somecategory) %&gt;% 
-    dplyr::summarise(newmean = mean(somevariable)) 
+                    <description>&lt;p&gt;sometimes dplyr and plyr mask eachother&amp;#39;s functions. Easy solution is to utilize the &amp;quot;::&amp;quot; operator.
+    summaryData = myData %&amp;gt;% group&lt;em&gt;by(some&lt;/em&gt;category) %&amp;gt;% 
+    dplyr::summarise(new&lt;em&gt;mean = mean(some&lt;/em&gt;variable)) &lt;/p&gt;
 </description>
                 
                             <pubDate>Wed, 09 Jul 2014 21:22:00 -0700</pubDate>
@@ -60,7 +72,7 @@
                 <title>Put that coffee down</title>
                 <dc:creator></dc:creator>
                 
-                    <description>Coffee&#39;s for closers only
+                    <description>&lt;p&gt;Coffee&amp;#39;s for closers only&lt;/p&gt;
 </description>
                 
                             <pubDate>Wed, 26 Mar 2014 16:15:39 -0700</pubDate>
@@ -69,20 +81,13 @@
             </item>
         
             <item>
-                <title>This Is Normal Enough Right</title>
+                <title>This is normal enough right?</title>
                 <dc:creator></dc:creator>
                 
-                    <description>
-
-author: mayertbryan
-comments: true
-date: 2014-03-05 22:07:04+00:00
-layout: post
-slug: this-is-normal-enough-right
-title: This is normal enough right?
+                    <description>&lt;p&gt;&lt;img src=&quot;https://31.media.tumblr.com/e3839b676afdb9feb9840d7b4ffd08dd/tumblr_inline_n1zhfnr49g1qec066.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </description>
                 
-                            <pubDate>Wed, 05 Mar 2014 00:00:00 -0800</pubDate>
+                            <pubDate>Wed, 05 Mar 2014 14:07:04 -0800</pubDate>
                 <link>http://bryanmayer.github.io/this-is-normal-enough-right</link>
                 <guid isPermaLink="true">http://bryanmayer.github.io/this-is-normal-enough-right</guid>
             </item>
@@ -91,7 +96,11 @@ title: This is normal enough right?
                 <title>Getting latex commands into xtable without the parser messing things up</title>
                 <dc:creator></dc:creator>
                 
-                    <description>Another italicizing issue. This time going from R to latex using xtable.
+                    <description>&lt;p&gt;Another italicizing issue. This time going from R to latex using xtable.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/8202052.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://31.media.tumblr.com/5aef8c5ea78b76c71aa317dc13ccbcc7/tumblr_inline_myovapdcuZ1qec066.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </description>
                 
                             <pubDate>Tue, 31 Dec 2013 12:47:00 -0800</pubDate>
@@ -103,7 +112,12 @@ title: This is normal enough right?
                 <title>Customizing ggplot axes</title>
                 <dc:creator></dc:creator>
                 
-                    <description>As a general rule, most bacterial groups and species should be italicized. However, I&#39;m working with a few oddities that are not italicized. This led to some issues with axis labelings.  Through some troubleshooting I found a pretty workable s...</description>
+                    <description>&lt;p&gt;As a general rule, most bacterial groups and species should be italicized. However, I&amp;#39;m working with a few oddities that are not italicized. This led to some issues with axis labelings.  Through some troubleshooting I found a pretty workable solution to generating multiple font-faces in axes labels using ggplots.  I also customized the color for good measure.  Plot and code below.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/8189651.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://31.media.tumblr.com/7e5f4533e05ddef0ea51dd0adc5e92bf/tumblr_inline_myn6yyDnUM1qec066.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+</description>
                 
                             <pubDate>Mon, 30 Dec 2013 15:09:00 -0800</pubDate>
                 <link>http://bryanmayer.github.io/customizing-ggplot-axes</link>
@@ -114,7 +128,10 @@ title: This is normal enough right?
                 <title>nesting rbind/merge/ddply</title>
                 <dc:creator></dc:creator>
                 
-                    <description>In this I need to extract baseline and final values from a time series for one set of bacteria based on the analysis of another set. The final time varies by person and is derived in the separate analysis so that must be extracted individually the...</description>
+                    <description>&lt;p&gt;In this I need to extract baseline and final values from a time series for one set of bacteria based on the analysis of another set. The final time varies by person and is derived in the separate analysis so that must be extracted individually then I must use this time to find the final value. In the end I want to combine the information from that separate analysis with the values I extracted. This is the ugliest code I&amp;#39;ve ever written.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/ef1ac01ecfc9cd1652e4.js&quot;&gt; &lt;/script&gt;
+</description>
                 
                             <pubDate>Wed, 18 Dec 2013 14:17:00 -0800</pubDate>
                 <link>http://bryanmayer.github.io/nesting-rbind-merge-ddply</link>
