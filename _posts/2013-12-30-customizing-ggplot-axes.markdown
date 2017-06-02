@@ -1,7 +1,6 @@
 ---
 author: mayertbryan
 comments: true
-date: 2013-12-30 23:09:00+00:00
 layout: post
 slug: customizing-ggplot-axes
 title: Customizing ggplot axes

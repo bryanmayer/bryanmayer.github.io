@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+         robust-estimator-decreases-se
+        
+    </title>
+
+    <meta name="robots" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="cleartype" content="on">
+
+     <link rel="stylesheet" href="http://bryanmayer.github.io/css/syntax.css" type='text/css'> 
+    <link rel="stylesheet" href="http://bryanmayer.github.io/css/main.css" type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/rss+xml" title="Bryan T. Mayer" href="http://bryanmayer.github.io/feed.xml">
+
+</head>
+
+<body>
+    <header id="top" class="main-header">
+
+        <div class="module title color-1">
+            <h1><a href="http://bryanmayer.github.io/">Bryan T. Mayer</a></h1>
+        </div>
+
+        <div class="module description color-2">
+            Minimalistic, friendly, responsive.
+        </div>
+
+        <nav class="module main-menu color-4">
+            <a href="http://bryanmayer.github.io/">Home</a>
+            <a href="http://bryanmayer.github.io/about/">About</a>
+            <a href="http://bryanmayer.github.io/contact/">Contact</a>
+        </nav>
+
+        <div class="module links color-3">
+            <a href="https://github.com/bryanmayer" title="Profile in Github" target="_blank">github</a>
+            <a href="https://twitter.com/mayertbryan" title="Profile in Twitter" target="_blank">twitter</a>
+            <!-- <a href="https://plus.google.com/" title="Profile in Google+" target="_blank">Google+</a> -->
+            <!-- <a href="http://bryanmayer.github.io/feed.xml" title="Suscribe to RSS" target="_blank">rss</a> -->
+        </div>
+
+    </header>
+
+    <div class="main-content">
+
+    <article class="module color-3">
+        <h1>robust-estimator-decreases-se</h1>
+        <hr>
+        <p><strong>Does robust estimation of the standard error (i.e., the sandwich estimator) always decrease your precision?</strong> (Short answer: No)</p>
+
+<p>Consider these two poorly designed and poorly funded studies trying to find the population mean blood pressure. </p>
+
+<p>Study 1: 8 people are measured two measurements of blood pressure
+Study 2: 16 people with one measurement of blood pressure. </p>
+
+<p>One might approach this problem similarly in both studies: just take the average and plop on some CIs. But we hopefully know that we probably shouldn&#39;t treat 16 measurements from 8 people the same way as 16 measurements from 16 people. If we could do this, why not just take 16 measurements from 1 person. Running a study is easy! </p>
+
+<p>Multiple measurements on a single person might give some information on population variability, but there is likely a limit and so you want more people in a study. I don&#39;t think this is necessarily obvious though, and I have attended many academic talks where repeated measures are treated (or at least talked about) independently. Most commonly when sequencing in involved, and patients and data are hard to come by. Unfortnately, while you maybe able to draw a beautful and potentially precise phylogenetic tree for HIV in a single person, you still only have a single person for a population inference. </p>
+
+<p>So what is my point here. Well in study 1, we ultimately only have 8 people. The second measurement for each person helps us with the individual-level precision (I&#39;m more confident in my outcome for a given person) but it came at a cost: the population-level estimate will be less precise because I have less people. I like to think of this as having some &quot;effective sample size&quot;, it is not as bad as 8 but not as good as 16.</p>
+
+<p>This is where (robust error estimation)[https://en.wikipedia.org/wiki/Heteroscedasticity-consistent<em>standard</em>errors] comes in. Without considering the mechanics at all, this nifty little method is a correction to handle these scenarios. In this case, it should give an estimate consistent with my &quot;effective sample size&quot; idea, that is a larger standard error than if we treated the data independently.</p>
+
+<p>But wait! According to my opening question this is not always the case. So there must be an example where we get better precision from Study 1 using the robust estimator. Well we can&#39;t make up the sample size, so it must be made up by utilizing the covariance in some way.</p>
+
+<p>Recently, I &quot;well actually&quot;ed somebody on this issue, and was not prepared for their response: &quot;ok, so what&#39;s an example?&quot;. Naturally I was immediately filled with self-doubt. If you google this issue, you will eventually be pointed to a (comment thread)[http://www.mostlyharmlesseconometrics.com/2010/12/heteroskedasticity-and-standard-errors-big-and-small/] which leads to this (nifty little proof)[http://econ.lse.ac.uk/staff/spischke/mhe/josh/Notes%20on%20conv%20std%20error.pdf].</p>
+
+<p>So if your residuals are negatively correlated with the deviation of the independent variable from the average, your se will be too large. I tried to unpackage that a little and devise an example but I misunderstood the proof and devised a different example. BUT that example also happened to have lower robust errors than the unadjusted errors.</p>
+
+<p>To start, I&#39;m using &#39;robust estimation&#39; pretty loosely, but let&#39;s say that it is the classic &#39;sandwich estimator.&#39;</p>
+
+<p>The answer is no, but the conditions for this may not be intuitive. In fact, most time someone talks about using robust error correction, . </p>
+
+        <p class="top"><small><a href="#top">[top]</a></small></p>
+    </article>
+
+
+    <div class="social module">
+        <ul>
+
+            
+
+            
+
+            
+            
+
+            <li class="fb">
+            <a target="_blank" title="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?t=robust-estimator-decreases-se&u=http://bryanmayer.github.io/robust-estimator-decreases-se">Facebook</a></li>
+            <li class="tw"><a target="_blank" title="Share on Twitter" href="https://twitter.com/intent/tweet?text=robust-estimator-decreases-se&url=http://bryanmayer.github.io/robust-estimator-decreases-se&via=mayertbryan&hashtags=">Twitter</a></li>
+            <li class="gp"><a target="_blank" title="Share on Google+" href="https://plus.google.com/share?url=http://bryanmayer.github.io/robust-estimator-decreases-se">Google+</a></li>
+        </ul>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+    <div class="footer module">
+    <span class="licence">Copyright 2015 &copy; Minimal-block.</span>
+    <p>
+        Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyllrb</a>.
+        The <a href="https://github.com/drvy/minimal-block" target="_blank">minimal-block theme.</a>
+    </p>
+</div>
+
+</body>
+</html>
