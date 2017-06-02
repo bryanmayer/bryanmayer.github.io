@@ -7,19 +7,6 @@
         <atom:link href="http://bryanmayer.github.io/feed.xml" rel="self" type="application/rss+xml" />
         
             <item>
-                <title>robust-estimator-decreases-se</title>
-                <dc:creator></dc:creator>
-                
-                    <description>Does robust estimation of the standard error (i.e., the sandwich estimator) always decrease your precision? (Short answer: No)
-
-</description>
-                
-                            <pubDate>Mon, 13 Mar 2017 00:00:00 -0700</pubDate>
-                <link>http://bryanmayer.github.io/robust-estimator-decreases-se</link>
-                <guid isPermaLink="true">http://bryanmayer.github.io/robust-estimator-decreases-se</guid>
-            </item>
-        
-            <item>
                 <title>R shiny app of my BV data</title>
                 <dc:creator></dc:creator>
                 
