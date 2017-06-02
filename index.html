@@ -7,7 +7,6 @@ layout: default
     {% for post in paginator.posts %}
         <article class="module color-3">
                 <h2><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
-                <h4>{{ post.date | date_to_long_string }}</h4>
                 <span class="category">{{ post.categories | array_to_sentence_string }}</span>
                 <p>{{ post.excerpt | truncate: 500 }}</p>
         </article>
