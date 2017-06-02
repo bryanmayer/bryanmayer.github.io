@@ -10,30 +10,8 @@
                 <title>robust-estimator-decreases-se</title>
                 <dc:creator></dc:creator>
                 
-                    <description>&lt;p&gt;&lt;strong&gt;Does robust estimation of the standard error (i.e., the sandwich estimator) always decrease your precision?&lt;/strong&gt; (Short answer: No)&lt;/p&gt;
+                    <description>Does robust estimation of the standard error (i.e., the sandwich estimator) always decrease your precision? (Short answer: No)
 
-&lt;p&gt;Consider these two poorly designed and poorly funded studies trying to find the population mean blood pressure. &lt;/p&gt;
-
-&lt;p&gt;Study 1: 8 people are measured two measurements of blood pressure
-Study 2: 16 people with one measurement of blood pressure. &lt;/p&gt;
-
-&lt;p&gt;One might approach this problem similarly in both studies: just take the average and plop on some CIs. But we hopefully know that we probably shouldn&amp;#39;t treat 16 measurements from 8 people the same way as 16 measurements from 16 people. If we could do this, why not just take 16 measurements from 1 person. Running a study is easy! &lt;/p&gt;
-
-&lt;p&gt;Multiple measurements on a single person might give some information on population variability, but there is likely a limit and so you want more people in a study. I don&amp;#39;t think this is necessarily obvious though, and I have attended many academic talks where repeated measures are treated (or at least talked about) independently. Most commonly when sequencing in involved, and patients and data are hard to come by. Unfortnately, while you maybe able to draw a beautful and potentially precise phylogenetic tree for HIV in a single person, you still only have a single person for a population inference. &lt;/p&gt;
-
-&lt;p&gt;So what is my point here. Well in study 1, we ultimately only have 8 people. The second measurement for each person helps us with the individual-level precision (I&amp;#39;m more confident in my outcome for a given person) but it came at a cost: the population-level estimate will be less precise because I have less people. I like to think of this as having some &amp;quot;effective sample size&amp;quot;, it is not as bad as 8 but not as good as 16.&lt;/p&gt;
-
-&lt;p&gt;This is where (robust error estimation)[https://en.wikipedia.org/wiki/Heteroscedasticity-consistent&lt;em&gt;standard&lt;/em&gt;errors] comes in. Without considering the mechanics at all, this nifty little method is a correction to handle these scenarios. In this case, it should give an estimate consistent with my &amp;quot;effective sample size&amp;quot; idea, that is a larger standard error than if we treated the data independently.&lt;/p&gt;
-
-&lt;p&gt;But wait! According to my opening question this is not always the case. So there must be an example where we get better precision from Study 1 using the robust estimator. Well we can&amp;#39;t make up the sample size, so it must be made up by utilizing the covariance in some way.&lt;/p&gt;
-
-&lt;p&gt;Recently, I &amp;quot;well actually&amp;quot;ed somebody on this issue, and was not prepared for their response: &amp;quot;ok, so what&amp;#39;s an example?&amp;quot;. Naturally I was immediately filled with self-doubt. If you google this issue, you will eventually be pointed to a (comment thread)[http://www.mostlyharmlesseconometrics.com/2010/12/heteroskedasticity-and-standard-errors-big-and-small/] which leads to this (nifty little proof)[http://econ.lse.ac.uk/staff/spischke/mhe/josh/Notes%20on%20conv%20std%20error.pdf].&lt;/p&gt;
-
-&lt;p&gt;So if your residuals are negatively correlated with the deviation of the independent variable from the average, your se will be too large. I tried to unpackage that a little and devise an example but I misunderstood the proof and devised a different example. BUT that example also happened to have lower robust errors than the unadjusted errors.&lt;/p&gt;
-
-&lt;p&gt;To start, I&amp;#39;m using &amp;#39;robust estimation&amp;#39; pretty loosely, but let&amp;#39;s say that it is the classic &amp;#39;sandwich estimator.&amp;#39;&lt;/p&gt;
-
-&lt;p&gt;The answer is no, but the conditions for this may not be intuitive. In fact, most time someone talks about using robust error correction, . &lt;/p&gt;
 </description>
                 
                             <pubDate>Mon, 13 Mar 2017 00:00:00 -0700</pubDate>
@@ -45,13 +23,10 @@ Study 2: 16 people with one measurement of blood pressure. &lt;/p&gt;
                 <title>R shiny app of my BV data</title>
                 <dc:creator></dc:creator>
                 
-                    <description>&lt;p&gt;Last week, I took a workshop with the one and only Hadley Wickham learning about data visualization!
-As part of the course we learned about shiny and so I turned one of the figures from my &lt;a href=&quot;http://www.ncbi.nlm.nih.gov/pubmed/25676470&quot;&gt;recent publication on 
-bacterial vaginosis&lt;/a&gt; into a 
-&lt;a href=&quot;https://bryanmayer.shinyapps.io/BV-time-series&quot;&gt;shiny app hosted on shinyapps.io&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;My code is up on github: &lt;a href=&quot;https://github.com/bryanmayer/BV_data_figure&quot;&gt;https://github.com/bryanmayer/BV_data_figure&lt;/a&gt;:&lt;/p&gt;
-</description>
+                    <description>Last week, I took a workshop with the one and only Hadley Wickham learning about data visualization!
+As part of the course we learned about shiny and so I turned one of the figures from my recent publication on 
+bacterial vaginosis into a 
+shiny a...</description>
                 
                             <pubDate>Wed, 15 Jul 2015 14:10:48 -0700</pubDate>
                 <link>http://bryanmayer.github.io/R-shiny-app-of-my-BV-data</link>
@@ -62,9 +37,8 @@ bacterial vaginosis&lt;/a&gt; into a
                 <title>This is way more elegant than I could ever put it</title>
                 <dc:creator></dc:creator>
                 
-                    <description>&lt;p&gt;The data may not contain the answer. The combination of some data and an aching desire for an answer does not ensure that a reasonable answer can be extracted from a given body of data.&lt;/p&gt;
+                    <description>The data may not contain the answer. The combination of some data and an aching desire for an answer does not ensure that a reasonable answer can be extracted from a given body of data.
 
-&lt;p&gt;-John Tukey &lt;a href=&quot;http://www.johndcook.com/blog/2009/02/18/the-data-may-not-contain-the-answer/&quot;&gt;from my favorite stats blog&lt;/a&gt;&lt;/p&gt;
 </description>
                 
                             <pubDate>Tue, 17 Mar 2015 14:10:48 -0700</pubDate>
@@ -76,11 +50,8 @@ bacterial vaginosis&lt;/a&gt; into a
                 <title>How to write in science</title>
                 <dc:creator></dc:creator>
                 
-                    <description>&lt;p&gt;passive voice, gerund form, jargon.&lt;/p&gt;
+                    <description>passive voice, gerund form, jargon.
 
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;&lt;strong&gt;A more comprehensive understanding of this impact is crucial to future dynamic characterization.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 </description>
                 
                             <pubDate>Tue, 16 Sep 2014 16:27:00 -0700</pubDate>
@@ -92,13 +63,8 @@ bacterial vaginosis&lt;/a&gt; into a
                 <title>Random promotions</title>
                 <dc:creator></dc:creator>
                 
-                    <description>&lt;p&gt;Spent a little time learning about the &lt;a href=&quot;http://en.wikipedia.org/wiki/Peter_Principle&quot;&gt;Peter Principle&lt;/a&gt; today and found an agent-based model of company promotion strategies.  &lt;/p&gt;
+                    <description>Spent a little time learning about the Peter Principle today and found an agent-based model of company promotion strategies.  
 
-&lt;p&gt;The optimal strategy? Promoting by random.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://arxiv.org/pdf/0907.0455v3.pdf&quot;&gt;http://arxiv.org/pdf/0907.0455v3.pdf&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;(Side note: I have reservations about agent-based models because, without proper constraints and training, they can be parameterized to basically find any result.  Having said that, I did not scrutinize the methods of this paper.)&lt;/p&gt;
 </description>
                 
                             <pubDate>Fri, 12 Sep 2014 11:16:33 -0700</pubDate>
@@ -110,7 +76,8 @@ bacterial vaginosis&lt;/a&gt; into a
                 <title>This is normal enough right?</title>
                 <dc:creator></dc:creator>
                 
-                    <description>&lt;p&gt;&lt;img src=&quot;https://31.media.tumblr.com/e3839b676afdb9feb9840d7b4ffd08dd/tumblr_inline_n1zhfnr49g1qec066.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+                    <description>
+
 </description>
                 
                             <pubDate>Wed, 05 Mar 2014 14:07:04 -0800</pubDate>
@@ -122,11 +89,8 @@ bacterial vaginosis&lt;/a&gt; into a
                 <title>Getting latex commands into xtable without the parser messing things up</title>
                 <dc:creator></dc:creator>
                 
-                    <description>&lt;p&gt;Another italicizing issue. This time going from R to latex using xtable.&lt;/p&gt;
+                    <description>Another italicizing issue. This time going from R to latex using xtable.
 
-&lt;script src=&quot;https://gist.github.com/8202052.js&quot;&gt; &lt;/script&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://31.media.tumblr.com/5aef8c5ea78b76c71aa317dc13ccbcc7/tumblr_inline_myovapdcuZ1qec066.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </description>
                 
                             <pubDate>Tue, 31 Dec 2013 12:47:00 -0800</pubDate>
@@ -138,12 +102,7 @@ bacterial vaginosis&lt;/a&gt; into a
                 <title>Customizing ggplot axes</title>
                 <dc:creator></dc:creator>
                 
-                    <description>&lt;p&gt;As a general rule, most bacterial groups and species should be italicized. However, I&amp;#39;m working with a few oddities that are not italicized. This led to some issues with axis labelings.  Through some troubleshooting I found a pretty workable solution to generating multiple font-faces in axes labels using ggplots.  I also customized the color for good measure.  Plot and code below.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/8189651.js&quot;&gt; &lt;/script&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://31.media.tumblr.com/7e5f4533e05ddef0ea51dd0adc5e92bf/tumblr_inline_myn6yyDnUM1qec066.png&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
-</description>
+                    <description>As a general rule, most bacterial groups and species should be italicized. However, I’m working with a few oddities that are not italicized. This led to some issues with axis labelings.  Through some troubleshooting I found a pretty workable solut...</description>
                 
                             <pubDate>Mon, 30 Dec 2013 00:00:00 -0800</pubDate>
                 <link>http://bryanmayer.github.io/customizing-ggplot-axes</link>
@@ -154,10 +113,7 @@ bacterial vaginosis&lt;/a&gt; into a
                 <title>nesting rbind/merge/ddply</title>
                 <dc:creator></dc:creator>
                 
-                    <description>&lt;p&gt;In this I need to extract baseline and final values from a time series for one set of bacteria based on the analysis of another set. The final time varies by person and is derived in the separate analysis so that must be extracted individually then I must use this time to find the final value. In the end I want to combine the information from that separate analysis with the values I extracted. This is the ugliest code I&amp;#39;ve ever written.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/ef1ac01ecfc9cd1652e4.js&quot;&gt; &lt;/script&gt;
-</description>
+                    <description>In this I need to extract baseline and final values from a time series for one set of bacteria based on the analysis of another set. The final time varies by person and is derived in the separate analysis so that must be extracted individually the...</description>
                 
                             <pubDate>Wed, 18 Dec 2013 14:17:00 -0800</pubDate>
                 <link>http://bryanmayer.github.io/nesting-rbind-merge-ddply</link>

@@ -3,8 +3,7 @@ name: Bryan T. Mayer
 description: "Minimalistic, friendly, responsive."
 url: http://bryanmayer.github.io
 
-markdown: redcarpet
-highlighter: pygments
+highlighter: rouge
 
 paginate: 5
 permalink: /:title
@@ -12,7 +11,3 @@ permalink: /:title
 # Social share and comments.
 twitter: mayertbryan
 github: bryanmayer
-
-# RSS feed
-rss-feed-limit: 10
-rss-show-full: "yes"
