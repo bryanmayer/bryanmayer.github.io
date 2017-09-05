@@ -99,4 +99,4 @@ ggplot(data = summary_results_long, aes(x = sample_size, y = value - actual_ttes
   theme_bw()
 ```
 
-![](plot-1.png)
+![](https://github.com/bryanmayer/bryanmayer.github.io/blob/master/_site/wilcox-ttest/plot-1.png)
