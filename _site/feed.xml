@@ -3,8 +3,8 @@
     <channel>
         <title>Bryan T. Mayer</title>
         <description>Minimalistic, friendly, responsive.</description>
-        <link>http://bryanmayer.github.io</link>
-        <atom:link href="http://bryanmayer.github.io/feed.xml" rel="self" type="application/rss+xml" />
+        <link>http://localhost:4000</link>
+        <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
         
             <item>
                 <title>Power loss using Wilcox</title>
@@ -14,9 +14,9 @@
 
 </description>
                 
-                            <pubDate>Mon, 04 Sep 2017 14:10:48 -0700</pubDate>
-                <link>http://bryanmayer.github.io/wilcox-ttest</link>
-                <guid isPermaLink="true">http://bryanmayer.github.io/wilcox-ttest</guid>
+                            <pubDate>Mon, 04 Sep 2017 21:10:48 +0000</pubDate>
+                <link>http://localhost:4000/wilcox-ttest</link>
+                <guid isPermaLink="true">http://localhost:4000/wilcox-ttest</guid>
             </item>
         
             <item>
@@ -28,9 +28,9 @@ As part of the course we learned about shiny and so I turned one of the figures 
 bacterial vaginosis into a 
 shiny a...</description>
                 
-                            <pubDate>Wed, 15 Jul 2015 14:10:48 -0700</pubDate>
-                <link>http://bryanmayer.github.io/R-shiny-app-of-my-BV-data</link>
-                <guid isPermaLink="true">http://bryanmayer.github.io/R-shiny-app-of-my-BV-data</guid>
+                            <pubDate>Wed, 15 Jul 2015 21:10:48 +0000</pubDate>
+                <link>http://localhost:4000/R-shiny-app-of-my-BV-data</link>
+                <guid isPermaLink="true">http://localhost:4000/R-shiny-app-of-my-BV-data</guid>
             </item>
         
             <item>
@@ -41,9 +41,9 @@ shiny a...</description>
 
 </description>
                 
-                            <pubDate>Tue, 17 Mar 2015 14:10:48 -0700</pubDate>
-                <link>http://bryanmayer.github.io/this-is-way-more-elegant-than-i-could-ever-put-it</link>
-                <guid isPermaLink="true">http://bryanmayer.github.io/this-is-way-more-elegant-than-i-could-ever-put-it</guid>
+                            <pubDate>Tue, 17 Mar 2015 21:10:48 +0000</pubDate>
+                <link>http://localhost:4000/this-is-way-more-elegant-than-i-could-ever-put-it</link>
+                <guid isPermaLink="true">http://localhost:4000/this-is-way-more-elegant-than-i-could-ever-put-it</guid>
             </item>
         
             <item>
@@ -54,9 +54,9 @@ shiny a...</description>
 
 </description>
                 
-                            <pubDate>Tue, 16 Sep 2014 16:27:00 -0700</pubDate>
-                <link>http://bryanmayer.github.io/how-to-write-in-science</link>
-                <guid isPermaLink="true">http://bryanmayer.github.io/how-to-write-in-science</guid>
+                            <pubDate>Tue, 16 Sep 2014 23:27:00 +0000</pubDate>
+                <link>http://localhost:4000/how-to-write-in-science</link>
+                <guid isPermaLink="true">http://localhost:4000/how-to-write-in-science</guid>
             </item>
         
             <item>
@@ -67,9 +67,9 @@ shiny a...</description>
 
 </description>
                 
-                            <pubDate>Fri, 12 Sep 2014 11:16:33 -0700</pubDate>
-                <link>http://bryanmayer.github.io/random-promotions</link>
-                <guid isPermaLink="true">http://bryanmayer.github.io/random-promotions</guid>
+                            <pubDate>Fri, 12 Sep 2014 18:16:33 +0000</pubDate>
+                <link>http://localhost:4000/random-promotions</link>
+                <guid isPermaLink="true">http://localhost:4000/random-promotions</guid>
             </item>
         
             <item>
@@ -77,12 +77,11 @@ shiny a...</description>
                 <dc:creator></dc:creator>
                 
                     <description>
-
 </description>
                 
-                            <pubDate>Wed, 05 Mar 2014 14:07:04 -0800</pubDate>
-                <link>http://bryanmayer.github.io/this-is-normal-enough-right</link>
-                <guid isPermaLink="true">http://bryanmayer.github.io/this-is-normal-enough-right</guid>
+                            <pubDate>Wed, 05 Mar 2014 22:07:04 +0000</pubDate>
+                <link>http://localhost:4000/this-is-normal-enough-right</link>
+                <guid isPermaLink="true">http://localhost:4000/this-is-normal-enough-right</guid>
             </item>
         
             <item>
@@ -93,9 +92,9 @@ shiny a...</description>
 
 </description>
                 
-                            <pubDate>Tue, 31 Dec 2013 12:47:00 -0800</pubDate>
-                <link>http://bryanmayer.github.io/getting-latex-commands-into-xtable-without-the</link>
-                <guid isPermaLink="true">http://bryanmayer.github.io/getting-latex-commands-into-xtable-without-the</guid>
+                            <pubDate>Tue, 31 Dec 2013 20:47:00 +0000</pubDate>
+                <link>http://localhost:4000/getting-latex-commands-into-xtable-without-the</link>
+                <guid isPermaLink="true">http://localhost:4000/getting-latex-commands-into-xtable-without-the</guid>
             </item>
         
             <item>
@@ -105,8 +104,8 @@ shiny a...</description>
                     <description>As a general rule, most bacterial groups and species should be italicized. However, I’m working with a few oddities that are not italicized. This led to some issues with axis labelings.  Through some troubleshooting I found a pretty workable solut...</description>
                 
                             <pubDate>Mon, 30 Dec 2013 00:00:00 -0800</pubDate>
-                <link>http://bryanmayer.github.io/customizing-ggplot-axes</link>
-                <guid isPermaLink="true">http://bryanmayer.github.io/customizing-ggplot-axes</guid>
+                <link>http://localhost:4000/customizing-ggplot-axes</link>
+                <guid isPermaLink="true">http://localhost:4000/customizing-ggplot-axes</guid>
             </item>
         
             <item>
@@ -115,9 +114,9 @@ shiny a...</description>
                 
                     <description>In this I need to extract baseline and final values from a time series for one set of bacteria based on the analysis of another set. The final time varies by person and is derived in the separate analysis so that must be extracted individually the...</description>
                 
-                            <pubDate>Wed, 18 Dec 2013 14:17:00 -0800</pubDate>
-                <link>http://bryanmayer.github.io/nesting-rbind-merge-ddply</link>
-                <guid isPermaLink="true">http://bryanmayer.github.io/nesting-rbind-merge-ddply</guid>
+                            <pubDate>Wed, 18 Dec 2013 22:17:00 +0000</pubDate>
+                <link>http://localhost:4000/nesting-rbind-merge-ddply</link>
+                <guid isPermaLink="true">http://localhost:4000/nesting-rbind-merge-ddply</guid>
             </item>
         
     </channel>

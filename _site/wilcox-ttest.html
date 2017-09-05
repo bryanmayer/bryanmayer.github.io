@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+         Power loss using Wilcox
+        
+    </title>
+
+    <meta name="robots" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="cleartype" content="on">
+
+     <link rel="stylesheet" href="http://localhost:4000/css/syntax.css" type='text/css'> 
+    <link rel="stylesheet" href="http://localhost:4000/css/main.css" type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/rss+xml" title="Bryan T. Mayer" href="http://localhost:4000/feed.xml">
+
+</head>
+
+<body>
+    <header id="top" class="main-header">
+
+        <div class="module title color-1">
+            <h1><a href="http://localhost:4000/">Bryan T. Mayer</a></h1>
+        </div>
+
+        <div class="module description color-2">
+            Minimalistic, friendly, responsive.
+        </div>
+
+        <nav class="module main-menu color-4">
+            <a href="http://localhost:4000/">Home</a>
+            <a href="http://localhost:4000/about/">About</a>
+            <a href="http://localhost:4000/contact/">Contact</a>
+        </nav>
+
+        <div class="module links color-3">
+            <a href="https://github.com/bryanmayer" title="Profile in Github" target="_blank">github</a>
+            <a href="https://twitter.com/mayertbryan" title="Profile in Twitter" target="_blank">twitter</a>
+            <!-- <a href="https://plus.google.com/" title="Profile in Google+" target="_blank">Google+</a> -->
+            <!-- <a href="http://localhost:4000/feed.xml" title="Suscribe to RSS" target="_blank">rss</a> -->
+        </div>
+
+    </header>
+
+    <div class="main-content">
+
+    <article class="module color-3">
+        <h1>Power loss using Wilcox</h1>
+        <hr>
+        <p>I know this is an answered question, but I was curious how detrimental it is to use a Wilcoxon rank-sum test in lieu of a student t-test. This brief simulation assumes that the assumptions for a simple two-sample t-test are met:</p>
+
+<ol>
+  <li>The data are a simple, random sample.</li>
+  <li>The data are on an interval scale (i.e., continuous without boundaries).</li>
+  <li>The populations have equal variance.</li>
+  <li>The populations are normally distribution.</li>
+</ol>
+
+<p>A little aside, does assumption 4 matter? Proofs of the t-test seem to always start with the assumption that our data are normally distributed (for example, see Casella &amp; Berger). However, the proof that the t-statistic is t-distributed only requires that the sample mean is normally distributed (also covered in Casella &amp; Berger). This is guaranteed by assuming our data are normal but is also a result of the CLT assuming we have 1.) a behaved distribution (i.e., basically most continuous distributions that we can easily sample in R), and 2) a large enough sample size. Long story short, I’m not concerning myself with non-normal data right now, but it could certainly be an issue for small samples of skewed distributions.</p>
+
+<p>Here is a straightforward function that takes sample size (<code class="highlighter-rouge">n</code>), a difference in means (<code class="highlighter-rouge">mean_difference</code>) and standard deviations for both populations. For simplicity, one of the populations is centered at zero and the second is shifted by the mean difference, so we don’t need to input multiple means.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">sim_test_fun</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">mean_difference</span><span class="p">,</span><span class="w"> </span><span class="n">sd1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">sd2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">){</span><span class="w">
+  </span><span class="n">x</span><span class="m">1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sd1</span><span class="p">)</span><span class="w">
+  </span><span class="n">x</span><span class="m">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rnorm</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean_difference</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sd2</span><span class="p">)</span><span class="w">
+  
+  </span><span class="n">test1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t.test</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">var.equal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">sd1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">sd2</span><span class="p">))</span><span class="w">
+  </span><span class="n">test2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wilcox.test</span><span class="p">(</span><span class="n">x</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="m">2</span><span class="p">)</span><span class="w">
+  
+  </span><span class="n">data.frame</span><span class="p">(</span><span class="w">
+   </span><span class="n">wilcox</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">test2</span><span class="o">$</span><span class="n">p.value</span><span class="p">,</span><span class="w">
+   </span><span class="n">ttest</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">test1</span><span class="o">$</span><span class="n">p.value</span><span class="w">
+  </span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>This following code is a simulation using <code class="highlighter-rouge">tidyverse</code> syntax. I selected ranges of data that fit with some of my research focusing on differences of means on the log scale. Overall, this simulation can take a bit of time. Full disclosure: I used <code class="highlighter-rouge">plyr::ldply(1:10000, ...)</code> for the 10,000 simulations and utilized the parallelization option.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span><span class="w">
+
+</span><span class="n">test_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">expand.grid</span><span class="p">(</span><span class="w">
+  </span><span class="n">simulations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">10000</span><span class="p">,</span><span class="w">
+  </span><span class="n">sample_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">),</span><span class="w">
+  </span><span class="n">log_difference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">2.5</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">)</span><span class="w">
+</span><span class="p">)</span><span class="w">
+
+</span><span class="n">set.seed</span><span class="p">(</span><span class="m">100</span><span class="p">)</span><span class="w">
+</span><span class="n">test_results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">test_data</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">group_by</span><span class="p">(</span><span class="n">simulations</span><span class="p">,</span><span class="w"> </span><span class="n">sample_size</span><span class="p">,</span><span class="w"> </span><span class="n">log_difference</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">do</span><span class="p">(</span><span class="n">sim_test_fun</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">.</span><span class="o">$</span><span class="n">sample_size</span><span class="p">,</span><span class="w"> </span><span class="n">mean_difference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">.</span><span class="o">$</span><span class="n">log_difference</span><span class="p">))</span><span class="w">
+</span></code></pre>
+</div>
+
+<p>Now we compile the results assuming a typical significance level of 0.05. I also included an exact calculation of power for the t-test using the <code class="highlighter-rouge">pwr</code> library. For a mean difference of 0, we expect a rejection rate of about 0.05 (the false positive rate) which we see for the t-test but not quite the Wilcox. It is possible that 10,000 simulations is not enough.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">pwr</span><span class="p">)</span><span class="w">
+
+</span><span class="n">summary_results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">test_results</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+ </span><span class="n">group_by</span><span class="p">(</span><span class="n">sample_size</span><span class="p">,</span><span class="w"> </span><span class="n">log_difference</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+ </span><span class="n">summarize</span><span class="p">(</span><span class="w">
+   </span><span class="n">ttest_power</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">ttest</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0.05</span><span class="p">),</span><span class="w">
+   </span><span class="n">wilcox_power</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mean</span><span class="p">(</span><span class="n">wilcox</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">0.05</span><span class="p">),</span><span class="w">
+   </span><span class="n">actual_ttest_pwr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pwr.t.test</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unique</span><span class="p">(</span><span class="n">sample_size</span><span class="p">),</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">unique</span><span class="p">(</span><span class="n">log_difference</span><span class="p">),</span><span class="w"> 
+                                 </span><span class="n">sig.level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.05</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"two.sample"</span><span class="p">)</span><span class="o">$</span><span class="n">power</span><span class="w">
+ </span><span class="p">)</span><span class="w">
+
+
+
+</span><span class="n">subset</span><span class="p">(</span><span class="n">summary_results</span><span class="p">,</span><span class="w"> </span><span class="n">log_difference</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="n">knitr</span><span class="o">::</span><span class="n">kable</span><span class="p">()</span><span class="w">
+</span></code></pre>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">sample_size</th>
+      <th style="text-align: right">log_difference</th>
+      <th style="text-align: right">ttest_power</th>
+      <th style="text-align: right">wilcox_power</th>
+      <th style="text-align: right">actual_ttest_pwr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">4</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0.0480</td>
+      <td style="text-align: right">0.0269</td>
+      <td style="text-align: right">0.05</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">6</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0.0455</td>
+      <td style="text-align: right">0.0406</td>
+      <td style="text-align: right">0.05</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">8</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0.0506</td>
+      <td style="text-align: right">0.0499</td>
+      <td style="text-align: right">0.05</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">10</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0.0572</td>
+      <td style="text-align: right">0.0492</td>
+      <td style="text-align: right">0.05</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">12</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0.0490</td>
+      <td style="text-align: right">0.0448</td>
+      <td style="text-align: right">0.05</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">14</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0.0533</td>
+      <td style="text-align: right">0.0543</td>
+      <td style="text-align: right">0.05</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">16</td>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">0.0502</td>
+      <td style="text-align: right">0.0476</td>
+      <td style="text-align: right">0.05</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Finally, a plot of the simulated power calculations relative to the calculated, exact values. The simulated t-test generally performs better than the Wilcox for these range of values. We see at the lowest sample size that there is a substantial loss of power for bigger differences and then a general, consistent reduction in power for smaller mean differences. The Wilcox results show a bit of variation and that means more simulations are probably required to get stable results, but the general trends seem stable.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">summary_results_long</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">summary_results</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">subset</span><span class="p">(</span><span class="n">log_difference</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="c1">#remove log-difference = 0 results
+</span><span class="w">  </span><span class="n">gather</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">ends_with</span><span class="p">(</span><span class="s2">"_power"</span><span class="p">))</span><span class="w">
+
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">summary_results_long</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sample_size</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">actual_ttest_pwr</span><span class="p">,</span><span class="w">
+                                        </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="n">linetype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">log_difference</span><span class="p">),</span><span class="w">
+                                        </span><span class="n">shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factor</span><span class="p">(</span><span class="n">log_difference</span><span class="p">)))</span><span class="w"> </span><span class="o">+</span><span class="w"> 
+  </span><span class="n">geom_hline</span><span class="p">(</span><span class="n">yintercept</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">linetype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"dashed"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="s2">"Simulated power - calculated t-test power"</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_point</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_line</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme_bw</span><span class="p">()</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="https://github.com/bryanmayer/bryanmayer.github.io/blob/master/_site/wilcox-ttest/plot-1.png" alt="" /></p>
+
+        <p class="top"><small><a href="#top">[top]</a></small></p>
+    </article>
+
+
+    <div class="social module">
+        <ul>
+
+            
+
+            
+
+            
+            
+
+            <li class="fb">
+            <a target="_blank" title="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?t=Power loss using Wilcox&u=http://localhost:4000/wilcox-ttest">Facebook</a></li>
+            <li class="tw"><a target="_blank" title="Share on Twitter" href="https://twitter.com/intent/tweet?text=Power loss using Wilcox&url=http://localhost:4000/wilcox-ttest&via=mayertbryan&hashtags=">Twitter</a></li>
+            <li class="gp"><a target="_blank" title="Share on Google+" href="https://plus.google.com/share?url=http://localhost:4000/wilcox-ttest">Google+</a></li>
+        </ul>
+    </div>
+
+
+
+</div>
+
+
+
+
+
+    <div class="footer module">
+    <span class="licence">Copyright 2015 &copy; Minimal-block.</span>
+    <p>
+        Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyllrb</a>.
+        The <a href="https://github.com/drvy/minimal-block" target="_blank">minimal-block theme.</a>
+    </p>
+</div>
+
+</body>
+</html>
