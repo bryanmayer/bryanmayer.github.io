@@ -1,0 +1,71 @@
+---
+title: "Ride share one time pass"
+author: "Bryan Mayer"
+date: "9/6/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+A certain ride sharing company sent me the following offer: pay \$20 up front and your rides will be \$4.49 (\$2.49 for the car pool version) for 28 days. My immediate reaction was to jump on board of this great offer! However, I began to realize my intuition was flawed. The mistake I made was that I was comparing the amount I would save per ride (on average) to the \$20 up front fee. So if my usual ride was \$13, I would save \$6 after only two rides (pre-tip). This is wrong because I'm forgetting that I still have to pay \$4.49 per ride. I'm guessing this sort of strategy is generally lucrative (why else would they offer it?) because this reasoning is intuitive.
+
+That being said, it certainly can be a good deal under the right conditions, which is what I'll explore here. I will calculate how many rides you need to make this a good deal depending on average fare per ride. There are three important piece of information to answering this question:
+
+1) The minimum fare per ride to set our minimum average: \$5.45 for normal and \$5.60 for pool (as of writing this).
+2) Average true cost per ride: we'll look over a range of values.
+3) The cap: the deal allows up to $25 then you add the difference to the fixed fare. For example, if the true fare was \$26, you'd pay \$5.49.
+
+This isn't a probability question so the average true cost per ride is sufficient to answer our question. However, condition 3 can throw a wrench in the calculation if we are not careful. I'll get to that in a second, but keep in mind that if you average a true \$25 per ride for 2 rides, your paid fare could be as low as \$8.98 and as high as $28.53. Let's start by ignoring the cap. 
+
+The solution to this problem can be solved using algebra. We want to know when the true cost of rides will exceed the reduced cost plus the premium fee. There are two variables here, average true cost be per ride ($C$) and total rides ($T$):
+
+$$ C*T > 20 + T * 4.49$$
+
+We just need to solve for $T$ and then we will plot for different costs.
+
+$$ T > \frac{20}{C - 4.49}$$
+
+Now to do in R.
+
+```{r first}
+suppressPackageStartupMessages(library(tidyverse))
+theme_set(theme_bw() + theme(legend.position = "top") )
+
+
+reduce_fare = data_frame(
+  service = c("Regular", "Pool"),
+  reduce_fare = c(4.49, 2.49)
+)
+
+average_fare_data = crossing(
+  service = c("Regular", "Pool"),
+  average_fares = seq(5.49, 25, by = 0.01)
+  ) %>% 
+  left_join(reduce_fare, by = "service") %>%
+  mutate(
+    optimal_ride = ceiling(20/(average_fares - reduce_fare)) # since we can't take partial rides
+  )
+
+
+ggplot(data = average_fare_data, aes(x = average_fares, y = optimal_ride, colour = service)) +
+  geom_line() +
+  scale_y_continuous("Rides to break even", breaks = seq(0, 20, by = 2)) +
+  scale_x_continuous("Average true fare", labels = scales::dollar)
+
+
+
+
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

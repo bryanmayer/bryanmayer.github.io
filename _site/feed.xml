@@ -3,8 +3,21 @@
     <channel>
         <title>Bryan T. Mayer</title>
         <description>Minimalistic, friendly, responsive.</description>
-        <link>http://localhost:4000</link>
-        <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+        <link>http://localhost:4444</link>
+        <atom:link href="http://localhost:4444/feed.xml" rel="self" type="application/rss+xml" />
+        
+            <item>
+                <title>Ride share blowout sale</title>
+                <dc:creator></dc:creator>
+                
+                    <description>A certain ride sharing company sent me the following offer: pay $20 up front and your rides will be $4.50 ($2.50 for the carpool version) for 28 days. Is this a good deal? Let’s find out!
+
+</description>
+                
+                            <pubDate>Sat, 09 Sep 2017 00:00:00 -0700</pubDate>
+                <link>http://localhost:4444/ride-share-blowout-sale</link>
+                <guid isPermaLink="true">http://localhost:4444/ride-share-blowout-sale</guid>
+            </item>
         
             <item>
                 <title>Power loss using Wilcox</title>
@@ -15,8 +28,8 @@
 </description>
                 
                             <pubDate>Mon, 04 Sep 2017 21:10:48 +0000</pubDate>
-                <link>http://localhost:4000/wilcox-ttest</link>
-                <guid isPermaLink="true">http://localhost:4000/wilcox-ttest</guid>
+                <link>http://localhost:4444/wilcox-ttest</link>
+                <guid isPermaLink="true">http://localhost:4444/wilcox-ttest</guid>
             </item>
         
             <item>
@@ -29,8 +42,8 @@ bacterial vaginosis into a
 shiny a...</description>
                 
                             <pubDate>Wed, 15 Jul 2015 21:10:48 +0000</pubDate>
-                <link>http://localhost:4000/R-shiny-app-of-my-BV-data</link>
-                <guid isPermaLink="true">http://localhost:4000/R-shiny-app-of-my-BV-data</guid>
+                <link>http://localhost:4444/R-shiny-app-of-my-BV-data</link>
+                <guid isPermaLink="true">http://localhost:4444/R-shiny-app-of-my-BV-data</guid>
             </item>
         
             <item>
@@ -42,8 +55,8 @@ shiny a...</description>
 </description>
                 
                             <pubDate>Tue, 17 Mar 2015 21:10:48 +0000</pubDate>
-                <link>http://localhost:4000/this-is-way-more-elegant-than-i-could-ever-put-it</link>
-                <guid isPermaLink="true">http://localhost:4000/this-is-way-more-elegant-than-i-could-ever-put-it</guid>
+                <link>http://localhost:4444/this-is-way-more-elegant-than-i-could-ever-put-it</link>
+                <guid isPermaLink="true">http://localhost:4444/this-is-way-more-elegant-than-i-could-ever-put-it</guid>
             </item>
         
             <item>
@@ -55,8 +68,8 @@ shiny a...</description>
 </description>
                 
                             <pubDate>Tue, 16 Sep 2014 23:27:00 +0000</pubDate>
-                <link>http://localhost:4000/how-to-write-in-science</link>
-                <guid isPermaLink="true">http://localhost:4000/how-to-write-in-science</guid>
+                <link>http://localhost:4444/how-to-write-in-science</link>
+                <guid isPermaLink="true">http://localhost:4444/how-to-write-in-science</guid>
             </item>
         
             <item>
@@ -68,8 +81,8 @@ shiny a...</description>
 </description>
                 
                             <pubDate>Fri, 12 Sep 2014 18:16:33 +0000</pubDate>
-                <link>http://localhost:4000/random-promotions</link>
-                <guid isPermaLink="true">http://localhost:4000/random-promotions</guid>
+                <link>http://localhost:4444/random-promotions</link>
+                <guid isPermaLink="true">http://localhost:4444/random-promotions</guid>
             </item>
         
             <item>
@@ -80,8 +93,8 @@ shiny a...</description>
 </description>
                 
                             <pubDate>Wed, 05 Mar 2014 22:07:04 +0000</pubDate>
-                <link>http://localhost:4000/this-is-normal-enough-right</link>
-                <guid isPermaLink="true">http://localhost:4000/this-is-normal-enough-right</guid>
+                <link>http://localhost:4444/this-is-normal-enough-right</link>
+                <guid isPermaLink="true">http://localhost:4444/this-is-normal-enough-right</guid>
             </item>
         
             <item>
@@ -93,8 +106,8 @@ shiny a...</description>
 </description>
                 
                             <pubDate>Tue, 31 Dec 2013 20:47:00 +0000</pubDate>
-                <link>http://localhost:4000/getting-latex-commands-into-xtable-without-the</link>
-                <guid isPermaLink="true">http://localhost:4000/getting-latex-commands-into-xtable-without-the</guid>
+                <link>http://localhost:4444/getting-latex-commands-into-xtable-without-the</link>
+                <guid isPermaLink="true">http://localhost:4444/getting-latex-commands-into-xtable-without-the</guid>
             </item>
         
             <item>
@@ -104,8 +117,8 @@ shiny a...</description>
                     <description>As a general rule, most bacterial groups and species should be italicized. However, I’m working with a few oddities that are not italicized. This led to some issues with axis labelings.  Through some troubleshooting I found a pretty workable solut...</description>
                 
                             <pubDate>Mon, 30 Dec 2013 00:00:00 -0800</pubDate>
-                <link>http://localhost:4000/customizing-ggplot-axes</link>
-                <guid isPermaLink="true">http://localhost:4000/customizing-ggplot-axes</guid>
+                <link>http://localhost:4444/customizing-ggplot-axes</link>
+                <guid isPermaLink="true">http://localhost:4444/customizing-ggplot-axes</guid>
             </item>
         
             <item>
@@ -115,8 +128,8 @@ shiny a...</description>
                     <description>In this I need to extract baseline and final values from a time series for one set of bacteria based on the analysis of another set. The final time varies by person and is derived in the separate analysis so that must be extracted individually the...</description>
                 
                             <pubDate>Wed, 18 Dec 2013 22:17:00 +0000</pubDate>
-                <link>http://localhost:4000/nesting-rbind-merge-ddply</link>
-                <guid isPermaLink="true">http://localhost:4000/nesting-rbind-merge-ddply</guid>
+                <link>http://localhost:4444/nesting-rbind-merge-ddply</link>
+                <guid isPermaLink="true">http://localhost:4444/nesting-rbind-merge-ddply</guid>
             </item>
         
     </channel>

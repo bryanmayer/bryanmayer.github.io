@@ -4,6 +4,7 @@ description: "Minimalistic, friendly, responsive."
 url: http://bryanmayer.github.io
 
 highlighter: rouge
+markdown: kramdown
 
 paginate: 5
 permalink: /:title

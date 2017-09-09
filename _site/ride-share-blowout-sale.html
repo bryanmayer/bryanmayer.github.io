@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+         Ride share blowout sale
+        
+    </title>
+
+    <meta name="robots" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="cleartype" content="on">
+
+     <link rel="stylesheet" href="http://localhost:4444/css/syntax.css" type='text/css'> 
+    <link rel="stylesheet" href="http://localhost:4444/css/main.css" type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="alternate" type="application/rss+xml" title="Bryan T. Mayer" href="http://localhost:4444/feed.xml">
+
+</head>
+
+<body>
+    <header id="top" class="main-header">
+
+        <div class="module title color-1">
+            <h1><a href="http://localhost:4444/">Bryan T. Mayer</a></h1>
+        </div>
+
+        <div class="module description color-2">
+            Minimalistic, friendly, responsive.
+        </div>
+
+        <nav class="module main-menu color-4">
+            <a href="http://localhost:4444/">Home</a>
+            <a href="http://localhost:4444/about/">About</a>
+            <a href="http://localhost:4444/contact/">Contact</a>
+        </nav>
+
+        <div class="module links color-3">
+            <a href="https://github.com/bryanmayer" title="Profile in Github" target="_blank">github</a>
+            <a href="https://twitter.com/mayertbryan" title="Profile in Twitter" target="_blank">twitter</a>
+            <!-- <a href="https://plus.google.com/" title="Profile in Google+" target="_blank">Google+</a> -->
+            <!-- <a href="http://localhost:4444/feed.xml" title="Suscribe to RSS" target="_blank">rss</a> -->
+        </div>
+
+    </header>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <div class="main-content">
+
+    <article class="module color-3">
+        <h1>Ride share blowout sale</h1>
+        <hr>
+        <p>A certain ride sharing company sent me the following offer: pay $20 up front and your rides will be $4.50 ($2.50 for the carpool version) for 28 days. Is this a good deal? Let’s find out!</p>
+
+<p>My immediate reaction was positive but then I had the feeling I was being duped. The key is to remember that the rides still cost money after the deal. So if my typical ride was $14.50, I don’t save $9 after only two rides ($29 - $20), I just break even because I still paid $9 for the rides. I’m guessing this sort of reasoning is intuitive, and why they might offer the deal.</p>
+
+<p>However, there are certainly conditions where this is a good deal, so that’s what I’ll explore here. Basically, we just need to calculate how many rides one needs to break even. There are two important pieces of information needed to answer this question:</p>
+
+<ol>
+  <li>The minimum fare per ride to set our minimum average: $5.45 for regular and $5.60 for carpool (as of writing this).</li>
+  <li>Average true cost per ride: we’ll look over a range of values.</li>
+</ol>
+
+<p>This problem can be solved using algebra. Essentially, we want to know when the true cost of rides will exceed the reduced cost plus the premium fee. There are two variables here, average true cost be per ride (C) and total rides (T):</p>
+
+<script type="math/tex; mode=display">C*T > 20 + T * 4.50</script>
+
+<p>We just need to solve for T (note that C &gt; 4.5 because our minimum fare):</p>
+
+<script type="math/tex; mode=display">T > \frac{20}{C - 4.50}</script>
+
+<p>Now to do in R.</p>
+
+<div class="language-r highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span><span class="w">
+</span><span class="n">theme_set</span><span class="p">(</span><span class="n">theme_bw</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"top"</span><span class="p">))</span><span class="w">
+
+</span><span class="n">reduce_fare</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data_frame</span><span class="p">(</span><span class="w">
+  </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"Regular"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Carpool"</span><span class="p">),</span><span class="w">
+  </span><span class="n">reduce_fare</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.5</span><span class="p">)</span><span class="w">
+</span><span class="p">)</span><span class="w">
+
+</span><span class="n">average_fare_data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">crossing</span><span class="p">(</span><span class="w"> </span><span class="c1">#like grid.extra
+</span><span class="w">  </span><span class="n">service</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"Regular"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Carpool"</span><span class="p">),</span><span class="w">
+  </span><span class="n">average_fares</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">5.45</span><span class="p">,</span><span class="w"> </span><span class="m">25</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.01</span><span class="p">)</span><span class="w">
+  </span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> 
+  </span><span class="n">left_join</span><span class="p">(</span><span class="n">reduce_fare</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"service"</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w">
+  </span><span class="n">mutate</span><span class="p">(</span><span class="w">
+    </span><span class="n">optimal_ride</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">ceiling</span><span class="p">(</span><span class="m">20</span><span class="o">/</span><span class="p">(</span><span class="n">average_fares</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">reduce_fare</span><span class="p">))</span><span class="w"> </span><span class="c1"># ceil since we can't take partial rides
+</span><span class="w">  </span><span class="p">)</span><span class="w">
+
+</span><span class="n">ggplot</span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">average_fare_data</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">average_fares</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">optimal_ride</span><span class="p">,</span><span class="w"> </span><span class="n">colour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">service</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_line</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.5</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">scale_y_continuous</span><span class="p">(</span><span class="s2">"Rides to break even"</span><span class="p">,</span><span class="w"> </span><span class="n">breaks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">seq</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">20</span><span class="p">,</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">scale_x_continuous</span><span class="p">(</span><span class="s2">"Average true fare"</span><span class="p">,</span><span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scales</span><span class="o">::</span><span class="n">dollar</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">annotate</span><span class="p">(</span><span class="s2">"point"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2.5</span><span class="p">,</span><span class="w"> </span><span class="n">shape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">stroke</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="c1"># my information
+</span><span class="w">  </span><span class="n">annotate</span><span class="p">(</span><span class="s2">"label"</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="o">=</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1.25</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"My usage"</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">scale_color_discrete</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="w">
+    </span><span class="n">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">26</span><span class="p">),</span><span class="w">
+    </span><span class="n">axis.title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">element_text</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">32</span><span class="p">),</span><span class="w">
+    </span><span class="n">legend.position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.9</span><span class="p">,</span><span class="m">0.9</span><span class="p">),</span><span class="w">
+    </span><span class="n">legend.justification</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">)</span><span class="w">
+    </span><span class="p">)</span><span class="w">
+</span></code></pre>
+</div>
+
+<p><img src="http://localhost:4444/images/share-value-first-1.png" alt="plot of chunk first" /></p>
+
+<p>Basically, this is a good deal for frequent riders who already spend a lot on the service, and better for carpool users. It is also good for someone who knows they have upcomong multiple fares &gt; $15 and any fare $25 or greater. One additional thing to consider, while you may break even, your actual savings won’t be too high if your typical rides are inexpensive. If you are riding at minimum fare, it takes 20 rides to break even, and then you are making about a $1 per ride after. So it is actually “most lucrative” for expensive rides. There is a cap though, which I talk about below. Based on my personal average usage in the last three months (plotted), this deal is not worth it to me. Makes one wonder if usage statistics factor into customer selection for the offer.</p>
+
+<p>Three issues I didn’t mention. First: tipping. If you tip (and you should!), and you are incentivized to take extra rides, this could cost you more money. Second is geographic limitations, which in this case means no airport ride deals. Third issue is the cap: the deal goes up to $25 but you pay the difference after reaching it. However, the break-even point (M) for a single ride is less than $25:</p>
+
+<script type="math/tex; mode=display">M*1 - [20 + 4.50*1] = 0</script>
+
+<script type="math/tex; mode=display">M = 24.50</script>
+
+<p>Because of the cap and the $20 premium, the most you can save from one use of the deal is $0.50. So the main way the cap affects the deal is in the actual amount saved, specifically for an infrequent rider. Consider that if you average a true $25 per ride for 2 rides, your reduced paid fare could be as low as $9 (two $25 true fares, $21 saved!) or as high as $28.51 (a minimum $5.49 and a $44.51 true fare, only $1.49 saved). While the deal is technically worth it either way, your savings are a lot higher in the former case! For frequent riders, this discrepancy is less of an issue.</p>
+
+        <p class="top"><small><a href="#top">[top]</a></small></p>
+    </article>
+
+
+    <div class="social module">
+        <ul>
+
+            
+
+            
+
+            
+            
+
+            <li class="fb">
+            <a target="_blank" title="Share on Facebook" href="https://www.facebook.com/sharer/sharer.php?t=Ride share blowout sale&u=http://localhost:4444/ride-share-blowout-sale">Facebook</a></li>
+            <li class="tw"><a target="_blank" title="Share on Twitter" href="https://twitter.com/intent/tweet?text=Ride share blowout sale&url=http://localhost:4444/ride-share-blowout-sale&via=mayertbryan&hashtags=">Twitter</a></li>
+            <li class="gp"><a target="_blank" title="Share on Google+" href="https://plus.google.com/share?url=http://localhost:4444/ride-share-blowout-sale">Google+</a></li>
+        </ul>
+    </div>
+
+
+
+</div>
+
+
+
+
+    
+    <div class="footer module">
+    <span class="licence">Copyright 2015 &copy; Minimal-block.</span>
+    <p>
+        Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyllrb</a>.
+        The <a href="https://github.com/drvy/minimal-block" target="_blank">minimal-block theme.</a>
+    </p>
+</div>
+
+</body>
+</html>
