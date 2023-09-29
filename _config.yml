@@ -10,5 +10,4 @@ paginate: 5
 permalink: /:title
 
 # Social share and comments.
-twitter: mayertbryan
 github: bryanmayer
